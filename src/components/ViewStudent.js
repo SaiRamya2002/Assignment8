@@ -39,10 +39,21 @@ const ViewStudent = () => {
                                 <td>{student.email}</td>
                             </tr>
                             <tr>
-                                <th>Class:</th>
-                                <td>{student.class}</td>
+                                <th>Address:</th>
+                                <td>{student.address}</td>
                             </tr>
-                            {/* Add more student fields as needed */}
+                            <tr>
+                                <th>Phone:</th>
+                                <td>{student.phone}</td> {/* Added phone number */}
+                            </tr>
+                            <tr>
+                                <th>Age:</th>
+                                <td>{student.age}</td> {/* Added age */}
+                            </tr>
+                            <tr>
+                                <th>Class:</th>
+                                <td>{student.class}</td> {/* Ensure this is the correct property */}
+                            </tr>
                         </tbody>
                     </table>
                     <Link to="/students" className="back-button">Back to Student List</Link>
@@ -55,3 +66,4 @@ const ViewStudent = () => {
 };
 
 export default ViewStudent;
+
