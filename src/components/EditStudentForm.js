@@ -9,17 +9,23 @@ const EditStudentForm = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const student = students.find(student => student.id === Number(id));
+    
+    // State variables for student fields
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [address, setAddress] = useState(''); 
-    const [phone, setPhone] = useState(''); 
+    const [address, setAddress] = useState('');
+    const [phone, setPhone] = useState('');
+    const [age, setAge] = useState(''); // State for age
+    const [className, setClassName] = useState(''); // State for class
 
     useEffect(() => {
         if (student) {
             setName(student.name);
             setEmail(student.email);
-            setAddress(student.address); 
-            setPhone(student.phone); 
+            setAddress(student.address);
+            setPhone(student.phone);
+            setAge(student.age || ''); // Initialize age
+            setClassName(student.class || ''); // Initialize class
         }
     }, [student]);
 
@@ -30,7 +36,9 @@ const EditStudentForm = () => {
             name, 
             email, 
             address,
-            phone 
+            phone,
+            age, // Include age in update
+            class: className // Include class in update
         });
         navigate('/students'); // Redirect to student list after editing
     };
@@ -69,6 +77,20 @@ const EditStudentForm = () => {
                     placeholder="Phone" 
                     value={phone} 
                     onChange={(e) => setPhone(e.target.value)} 
+                    required 
+                />
+                <input 
+                    type="number" 
+                    placeholder="Age" 
+                    value={age} 
+                    onChange={(e) => setAge(e.target.value)} 
+                    required 
+                />
+                <input 
+                    type="text" 
+                    placeholder="Class" 
+                    value={className} 
+                    onChange={(e) => setClassName(e.target.value)} 
                     required 
                 />
                 <button type="submit">Update</button>
