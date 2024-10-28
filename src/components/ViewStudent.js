@@ -44,7 +44,7 @@ const ViewStudent = () => {
                             </tr>
                             <tr>
                                 <th>Phone:</th>
-                                <td>{student.phone}</td> {/* Added phone number */}
+                                <td>{student.phonenumber}</td> {/* Added phone number */}
                             </tr>
                             <tr>
                                 <th>Age:</th>
